@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/drawing_bg.mp3-8f8c37a6b49c6144a39c7d081220553a.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/drawing_bg.mp3"
+dest_files=[ "res://.import/drawing_bg.mp3-8f8c37a6b49c6144a39c7d081220553a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

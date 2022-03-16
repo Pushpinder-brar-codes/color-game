@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/drawing_complete.mp3-29ad44b4ffb9e23dcb7e8b28c929fde3.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/drawing_complete.mp3"
+dest_files=[ "res://.import/drawing_complete.mp3-29ad44b4ffb9e23dcb7e8b28c929fde3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

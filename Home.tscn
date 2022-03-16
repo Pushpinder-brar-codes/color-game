@@ -1,0 +1,130 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Home_Scene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sounds/menu_bg_sound.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Home.gd" type="Script" id=4]
+[ext_resource path="res://assets/bg/rainbow2.jpg" type="Texture" id=13]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -2160, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -4320, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "swipe_right"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -4320, 0 ), Vector2( 2160, 0 ) ]
+}
+
+[node name="Home" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Home_Scene" parent="." instance=ExtResource( 1 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+mouse_filter = 1
+
+[node name="TextureRect" parent="Home_Scene" index="0"]
+margin_right = -2395.44
+margin_bottom = -864.0
+
+[node name="ColorFill" parent="Home_Scene" index="1"]
+margin_left = 871.0
+margin_top = 344.0
+margin_right = 1171.0
+margin_bottom = 644.0
+
+[node name="FunPaint" parent="Home_Scene" index="2"]
+margin_left = 1215.0
+margin_top = 344.0
+margin_right = 1515.0
+margin_bottom = 644.0
+
+[node name="Drawing" parent="Home_Scene" index="3"]
+margin_left = 1547.0
+margin_top = 348.0
+margin_right = 1847.0
+margin_bottom = 648.0
+
+[node name="GlowPen" parent="Home_Scene" index="4"]
+margin_left = 855.0
+margin_top = 676.0
+margin_right = 1155.0
+margin_bottom = 976.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/swipe_right = SubResource( 2 )
+
+[node name="TextureRect" type="Sprite" parent="."]
+position = Vector2( -4320, 0 )
+scale = Vector2( 2, 1 )
+z_index = 100
+texture = ExtResource( 13 )
+centered = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="SPM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+
+[connection signal="gui_input" from="." to="." method="_on_Home_gui_input"]
+[connection signal="gui_input" from="Home_Scene" to="Home_Scene" method="_on_Home_Scene_gui_input"]
+[connection signal="pressed" from="Home_Scene/Drawing" to="." method="_on_Drawing_pressed"]
+[connection signal="pressed" from="Home_Scene/GlowPen" to="." method="_on_GlowPen_pressed"]
+[connection signal="pressed" from="Home_Scene/Popup/ScrollContainer/GridContainer/TextureRect3/0" to="." method="_on_0_pressed"]
+[connection signal="pressed" from="Home_Scene/Popup/ScrollContainer/GridContainer/TextureRect4/1" to="." method="_on_1_pressed"]
+[connection signal="pressed" from="Home_Scene/Popup/ScrollContainer/GridContainer/TextureRect5/2" to="." method="_on_2_pressed"]
+[connection signal="pressed" from="Home_Scene/Popup/ScrollContainer/GridContainer/TextureRect6/3" to="." method="_on_3_pressed"]
+[connection signal="pressed" from="Home_Scene/Popup/ScrollContainer/GridContainer/TextureRect7/4" to="." method="_on_4_pressed"]
+[connection signal="pressed" from="Home_Scene/Popup/ScrollContainer/GridContainer/TextureRect8/5" to="." method="_on_5_pressed"]
+[connection signal="pressed" from="Home_Scene/Popup/ScrollContainer/GridContainer/TextureRect9/6" to="." method="_on_6_pressed"]
+[connection signal="pressed" from="Home_Scene/Popup/ScrollContainer/GridContainer/TextureRect10/7" to="." method="_on_7_pressed"]
+[connection signal="pressed" from="Home_Scene/Popup/ScrollContainer/GridContainer/TextureRect11/8" to="." method="_on_8_pressed"]
+[connection signal="pressed" from="Home_Scene/Popup/ScrollContainer/GridContainer/TextureRect12/9" to="." method="_on_9_pressed"]
+[connection signal="pressed" from="Home_Scene/Popup/ScrollContainer/GridContainer/TextureRect13/10" to="." method="_on_10_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[editable path="Home_Scene"]
